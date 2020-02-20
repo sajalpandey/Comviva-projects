@@ -1,0 +1,156 @@
+RDBMS :SQl
+->SELECT 
+->DMLS(INSERT/UPDATE/DELETE)
+->TCLS(COMMIT/ROLLBACK)
+->DDLS(CREATE/ALTER/DROP/RENAME/TRUNCATE)
+->DCLS(GRANT/REVOKE)
+
+SQL PARSING: WE GET THE PARSE CODE
+
+1)SYNTAX VERIFICATION
+2)SEMENTIC VERIFICATION
+
+
+MARIADB (COMMUNITY DATBASE)
+
+1)CREATE YOUR OWN DATBASE/SCHEMA
+SCHEMA IS COLLECTION OF DIFFERENT DATBASE OBJECTS OWNED BY A DB USER
+
+information schema-> have info about tables
+performance schema ->that index should be used or not/
+
+EMP (CREATE TABLE)
+---------
+EMPID INT 3(PRIMARY KEY)
+ENAME VARCHAR 20
+SAL FLOAT 10,2
+DEPTNO INT 
+MGRID INT (FOREIGN KEY) REFERENCES EMP(EMPID)
+
+(( create table emp(empid int(3), ename varchar(20), sal float (10,2), deptno int , mgrid int(3));))
+
+
+DEPT(CREATE TABLE)
+--------------------
+DEPTID INT
+DNAME VARCHAR(20)
+
+((create table dept( deptid int , dname varchar(20));))
+
+SYNTAX OF SELECT :
+--------------------
+SLECT [ DISTINCT |ALL ] COLUMN |EXPRESSION
+FROM TABLES(S)
+WHERE CONDITION
+GROUP BY COLUMN | EXPRESSION  
+HAVING CONDITION
+ORDER COLUMN |ALIAS |COL SEQUENCE | SUBQUERY
+
+
+
+QUES - DISPLAY TOP 3 EARNERS IN ORGANISATION (ANY TWO CAN HAVE SAME SALARY)
+
+-----------------------------------------------
+
+SLECT CONCAT (ENAME , ' EARNS ' , SAL*12)
+
+select ' earns ' from emp;
+
+
+WHERE CLAUSE
+------------
+FILTER ROWS BASED ON CONDITION 
+
+RELATIONAL OPERATORS
+------------------------
+>
+<
+>=
+<=
+<>
+------------------------
+BETWEEN ..AND
+IN(LIST OF VALUES)
+IS NULL
+
+
+
+
+LOGICAL OPERATIONS 
+---------------------
+AND 
+OR
+NOT
+
+
+
+DISPLAY EMP WHOSE SAL  > 15000;
+ques->DISPLAY EMP WHOSE NAME HAVE EXACTLY 4 LETTERS
+	ANS - SELECT 8 FROM EMP WHERE ENAME LIKE '____';
+	ans - select ename from emp where length(ename)=4;
+
+Display emp who dosn't have dept number
+
+
+
+GROUP FUNCTION AND BROUP BY CLAUSE
+----------------------------------
+ALL GROUP FUNCTION IGNORE NULL VALUES;
+
+
+Display deptno where no of employees are > 3;
+ANS -slect deptno , count(empid) from emp where deptno in NOT NULL group by deptno having count(empid) >3;
+
+
+JOINS
+-----------
+
+WHEN THE DATA ARE FETCHED FROM >1 TABLE 
+
+1.inner join
+2. outer join(right , left)
+3.cross join
+4.self join
+5.non equi join
+
+QUES - DISPLAY name of employee and their managers;
+ANS - select e1.ename "EMPLOYEE" , e2.ename "MANAGER" from emp e1 join emp e2 on e1.mgrid=e2.empid;
+
+
+QUES- display name and salary and grade of employee;
+ANS-select e.ename ,e.sal ,s.grade from emp e join salgrade s on (e.sal between s.losal and s.hisal);
+
+
+
+
+
+SQL ASSIGNMENT ANSWER->
+--------------------------
+1)select STUDENT_ID , STUDENT_FIRST_NAME FROM STUDENT_INFO WHERE STUDENT_FIRST_NAME LIKE 'A%';
+
+2)SELECT STUDENT_ID FROM STUDENT_INFO;
+
+3)	SELECT STUDENT_FIRST_NAME FROM STUDENT_INFO WHERE CITY IN('New York' ,'Mumbai');
+	SELECT STUDENT_FIRST_NAME FROM STUDENT_INFO WHERE CITY = 'New York' OR CITY = 'Mumbai';
+
+4) SELECT  STUDENT_ID , STUDENT_FIRST_NAME FROM STUDENT_INFO WHERE STUDENT_FIRST_NAME LIKE '%e';
+
+5) SELECT * FROM INSTRUCTOR_INFO FROM WHERE INSTRUCTOR_LAST_NAME = 'wong';
+
+6) SELECT * FROM STUDENT_INFO WHERE STUDENT_ID BETWEEN 11433 AND  11435;
+
+7) SELECT * FROM STUDENT_INFO WHERE STUDENT_ID > 11434 AND CITY = 'New York';
+
+8) SELECT * FROM STUDENT_INFO ORDER BY STUDENT_ID;
+
+9) SELECT * FROM INSTRUCTOR_INFO WHERE CITY = ' ';
+
+10)SELECT * FROM INSTRUCTOR_INFO WHERE LOWER(CITY) LIKE LOWER('WASHINGTON'); 
+
+11) SELECT * FROM INSTRUCTOR_INFO WHERE INSTRUCTOR_ID %100 = '09';
+
+12) SELECT INSTRUCTOR_ID "" , INSTRUCTOR_FIRST_NAME "" , INSTRUCTOR_LAST_NAME "", CITY "" FROM INSTRUCTOR_INFO;
+
+13) 
+
+14) SELECT STUDENT_LAST_NAME , CITY FROM STUDENT_INFO WHERE STUDENT_LAST_NAME = 'Joshi' AND CITY = 'Delhi';

@@ -1,0 +1,145 @@
+TestEmp.JAVA
+----------------------------------------
+
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+
+
+public class TestEmp {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Payroll processing system");
+		System.out.println("Enter No. of Employees : ");
+		
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int NoOfHours =0, NoOfEmployee=0;
+		String EmpName = null , EmpType=null;
+		double EmpSalary = 0.0;
+		
+		NoOfEmployee = sc.nextInt();
+		
+		System.out.println("Enter Deatils For Employee");
+		
+		ArrayList<Employee> emp = new ArrayList<>();
+		
+		
+		for(int i=0 ; i<NoOfEmployee ; ++i) {
+			
+			try {
+				
+					System.out.println("Enter Weekly Working hours of Employee :"+ (i+1) + " " );
+					NoOfHours = sc.nextInt();
+					
+					if(NoOfHours < 0 ) {
+						throw  new InvalidWorkingHours("Exception");
+					}
+					sc.nextLine();
+					System.out.println("Enter Name of Employee :"+(i+1) + " " );
+					EmpName = sc.nextLine();
+					System.out.println("Enter type of Employee :"+(i+1) + " " );
+					EmpType = sc.nextLine();
+					
+					if(EmpType.equals("Regular") || EmpType.equals("regular")) {
+						EmpSalary = 12000.00;
+					}
+					
+					else if(EmpType.equals("Managers") || EmpType.equals("managers")) {
+						EmpSalary = 12000.00 + 12000.00 * 0.05; 
+					}
+					
+					else if(EmpType.equals("Contracter") || EmpType.equals("contracter")) {
+						if(NoOfHours <= 40) {
+							EmpSalary = 150 * NoOfHours;
+						}
+						else {
+							EmpSalary = 150 * NoOfHours + (150 * (NoOfHours-40)) + (NoOfHours-40)/2 *150;
+						}
+					}
+					else {
+						throw  new InvalidEmpType("Exception");
+					}
+				}
+				
+				catch(InvalidWorkingHours e) {
+					System.out.println("Please input Correct Working hours");
+				}
+				
+				catch(InvalidEmpType e) {
+					System.out.println("Please input Correct Employee Type");
+				}
+				Employee e = new Employee(EmpName , NoOfHours , EmpType , EmpSalary);
+				emp.add(e);	
+			}
+			
+			System.out.println("\t\tDetails Of the Employee");
+			
+			for(Employee e1:emp) {
+				System.out.println(e1);
+			}
+			
+			
+			System.out.println("Do You want to Add more employee :");
+			String ch=null;
+			ch = sc.nextLine();
+			if(ch.equals("y")|| ch.equalsIgnoreCase("yes")){
+				System.out.println("Enter No of more Employees");
+				NoOfEmployee = sc.nextInt();
+				for(int i=0 ; i<NoOfEmployee ; ++i) {
+					
+					try {
+						
+							System.out.println("Enter Weekly Working hours of Employee :"+ (i+1) + " " );
+							NoOfHours = sc.nextInt();
+							
+							if(NoOfHours < 0 ) {
+								throw  new InvalidWorkingHours("Exception");
+							}
+							sc.nextLine();
+							System.out.println("Enter Name of Employee :"+(i+1) + " " );
+							EmpName = sc.nextLine();
+							System.out.println("Enter type of Employee :"+(i+1) + " " );
+							EmpType = sc.nextLine();
+							
+							if(EmpType.equals("Regular") || EmpType.equals("regular")) {
+								EmpSalary = 12000.00;
+							}
+							
+							else if(EmpType.equals("Managers") || EmpType.equals("managers")) {
+								EmpSalary = 12000.00 + 12000.00 * 0.05; 
+							}
+							
+							else if(EmpType.equals("Contracter") || EmpType.equals("contracter")) {
+								if(NoOfHours <= 40) {
+									EmpSalary = 150 * NoOfHours;
+								}
+								else {
+									EmpSalary = 150 * NoOfHours + (150 * (NoOfHours-40)) + (NoOfHours-40)/2 *150;
+								}
+							}
+							else {
+								throw  new InvalidEmpType("Exception");
+							}
+						}
+						
+						catch(InvalidWorkingHours e) {
+							System.out.println("Please input Correct Working hours");
+						}
+						
+						catch(InvalidEmpType e) {
+							System.out.println("Please input Correct Employee Type");
+						}
+						Employee e = new Employee(EmpName , NoOfHours , EmpType , EmpSalary);
+						emp.add(e);	
+					}
+				
+			}
+			else {
+				System.exit(0);
+		}		
+}}

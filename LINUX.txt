@@ -1,0 +1,196 @@
+#include<stdio.h>
+int main()
+{
+	printf("hello world");
+	return 0;
+}
+
+24/01/2020
+2nd column of MKT department
+ grep MKT employee.dat | cut -d" " -f2
+
+Capital letters
+echo "sajal" | tr [a-z] [A-Z]
+
+making first letter small
+cat employee.dat | tr [A-Z] [a-z]
+
+SQUIZZING
+ ls -l | tr -s " 
+
+Selecting differnt columns of date 
+ANS--
+
+
+ls -l |  grep -v ^t | tr -s " " | cut -d" " -f 5,9
+
+QUES- Display file name after size
+ANS-- ls -l | awk '{ print $9"\t" $5}'
+
+
+
+top 10 lines
+head employee.dat
+ display unique names
+ sort  -u names
+Sort in reverse order
+ sort -ur names
+
+Sort & Dispaly
+	sort -ur names -o fnames
+
+sort numbers
+ sort -n num
+
+Sort as well as out to file
+	 sort -n num  | tee fnum
+
+
+
+ ls -l |  grep -v ^t | tr -s " " | cut -d" " -f 9 > f2
+ ls -l |  grep -v ^t | tr -s " " | cut -d" " -f 5 > f1
+paste f2 f1
+
+
+
+Bash Shell
+Shell script
+ sh first.sh
+open vi 
+write script save and exit
+
+
+SHELL SCRIPT
+
+#echo "Enter a number"
+#read num
+#echo $num
+
+read -p "Enter the username:" usn
+read -s "enter the password :" pass
+echo "user is :" $usn
+echo "Password is :"$pass
+
+
+FILES
+
+if [ -s $1]
+then
+echo "FIle exists"
+else
+echo "no directory"
+fi
+
+2-
+if [ -s $1 ]
+then
+echo "FIle exists"
+        ls -l $1
+fi
+if [ -x $1 ]
+then
+        echo "Executable file"
+else
+        echo "not a file"
+fi
+
+
+3 no is even or odd
+ANS
+read -p "enter a number"  num
+if [ ` expr $num % 2 ` -eq 0 ]
+then
+        echo "number is even"
+else
+        echo "number is odd"
+fi
+
+
+4-
+CHEck if today is friday
+ANS--
+dayName=`date +%a | tr '[:lower:]' '[:upper:]'`
+
+if [ $dayName = "Fri" -o $dayName = "FRI" ]
+then
+    echo "Today is friday"
+else
+    echo "other"
+fi
+~
+222
+dayName=`date | cut -d" " -f`
+
+if [  $dayName ="Fri" ]
+then
+    echo "Today is friday"
+else
+    echo "other"
+fi
+~
+
+
+num=1
+while [ $num -le 4 ]
+do
+        echo $num
+        num=`expr $num + 1 `
+done
+
+echo "End of while "
+
+i=1
+until [ $i -gt 10 ]
+do
+        echo $i
+        i=`expr $i + 1`
+done
+echo "End of until"
+
+for i in 10 20 30 40 50
+do
+        echo $i
+done
+
+~
+
+
+QUES 27
+ANSb 1
+for i in `cat emp.dat`
+do
+        sal=`echo $i | cut -d"," -f3`
+        #echo $sal
+        if [ $sal -gt 10000 ]
+        then
+                echo $i
+        fi
+done
+~
+
+
+VIEW Steps 
+BVP$sh -x q27.sh
+
+ANS 2
+for i in `cat emp.dat`
+do
+        sal=`echo $i | cut -d"," -f3`
+        dep=`echo $i | cut -d"," -f4`
+        #echo $sal
+        if [ $sal -gt 5000 ]
+        then
+                if [ $dep -eq 10 ]
+                then
+                        echo $i >> emp2.dat
+                fi
+        fi
+done
+~
+create DATABASE
+
+
+
+
+
+

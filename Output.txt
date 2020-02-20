@@ -1,0 +1,31 @@
+OUTPUT
+----------------------------------------
+
+Payroll processing system
+Enter No. of Employees : 
+3
+Enter Deatils For Employee
+Enter Weekly Working hours of Employee :1 
+20
+Enter Name of Employee :1 
+sajal pandey
+Enter type of Employee :1 
+Regular
+Enter Weekly Working hours of Employee :2 
+30
+Enter Name of Employee :2 
+Ankit Fadia
+Enter type of Employee :2 
+Managers
+Enter Weekly Working hours of Employee :3 
+40
+Enter Name of Employee :3 
+Vaibhav
+Enter type of Employee :3 
+contracter
+		Details Of the Employee
+Employee [empName=sajal pandey, noOfHoursWork=20, empType=Regular, Weeklysalary Of Employee =12000.0]
+Employee [empName=Ankit Fadia, noOfHoursWork=30, empType=Managers, Weeklysalary Of Employee =12600.0]
+Employee [empName=Vaibhav, noOfHoursWork=40, empType=contracter, Weeklysalary Of Employee =6000.0]
+Do You want to Add more employee :
+NO
