@@ -1,0 +1,48 @@
+DS
+exception handling
+container managed transaction
+abstract vs inheritance
+thread
+deployment build path(connectivity)
+tomcat
+servlate vs jsp
+//war file
+maven
+//how to create jar ,war file in maven
+plugin in mavin
+hibernate(benifits  over jsp)-native query
+first/second level casing
+hibernate vs jpa
+-------spring-----
+spring-need,(create class with method,reprositry(this is interface)
+//not important-lemda expression in java
+rest API(url/method name use in noun,rest code-404/201/202,web service)
+--new spring topic--
+cross-cutting concerns
+-tangling
+-scattering(duplication-dont create duplicate method,creat a single class and call them)
+AOP
+before rule(gives you proxy)
+After rule(
+Afterthrowing
+Around
+---tools----
+1jenkins-cics,pipeline
+2.docker
+3.sonar
+4.git
+5-jira-bug 
+6-log4j
+7.crucible
+8-conflunce-clobration
+9.nagios
+10.Altassion
+--new-
+11.Artifactory
+
+12-ansible-yaml(file)
+
+
+
+
+
