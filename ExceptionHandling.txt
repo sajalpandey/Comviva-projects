@@ -1,0 +1,27 @@
+ExceptionHandling.JAVA
+----------------------------------------
+
+class InvalidWorkingHours extends Exception {
+	
+	public InvalidWorkingHours(String s) 
+    { 
+        // Call constructor of parent Exception 
+        super(s); 
+    }
+
+}
+
+
+class InvalidEmpType extends Exception {
+	
+	public InvalidEmpType(String s) 
+    { 
+        // Call constructor of parent Exception 
+        super(s); 
+    }
+
+}
+
+public class ExceptionHandling {
+
+}

@@ -1,0 +1,9 @@
+COMMANDS->
+-----------------
+
+1)hostname
+2)ping google.com
+3)netstat -an |more
+
+telnet - connect destination host:port via a telnet protocol
+if connection establishes means connectivity between two hosts is working fine.
